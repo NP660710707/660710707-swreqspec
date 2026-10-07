@@ -100,3 +100,21 @@
 - ปรับ FR-BKG-03 และ AC-BKG-03 โดยใช้ ID เดิม และอัปเดตสถานะ spec เป็น Draft v3
 - อัปเดตวิธีทดสอบ AC-BKG-03 ใน plan.md ให้ตรงกับเกณฑ์ใหม่
 - แตก tasks.md จาก spec และ plan ฉบับที่ปรับแล้ว; ไม่เขียนโค้ด
+
+## 2569-10-07 07:51 คำสั่ง: /implement T-01 specs/001-booking/tasks.md
+
+- เครื่องมือ: Copilot ใน Codespaces
+- Task: T-01 รวมค่ากำหนดจากข้อกำหนด
+- ไฟล์ที่สร้าง: `backend/app/config.py`, `frontend/src/config.js`
+- ไฟล์สถานะงาน: `specs/001-booking/tasks.md` เปลี่ยน T-01 เป็น “เสร็จ รอทีมตรวจ”
+
+### ผลตรวจ
+
+- Python config syntax และ assertions ของค่าตาม plan.md: PASS
+- Frontend config exports และ assertions ของค่าที่หน้าจอใช้: PASS
+- `git diff --check`: PASS
+
+### สิ่งที่ไม่ได้เดา
+
+- ไม่กำหนดรูปแบบ/วิธีสร้างหมายเลขคิว เพราะยังรอ Q-02
+- ระบุ retry deadline ตาม NFR-REL-02 แยกจาก retry interval ตาม ASM-03 และใส่หมายเหตุว่ายังไม่อนุมานความสัมพันธ์ของเวลา
