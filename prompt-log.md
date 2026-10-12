@@ -119,6 +119,31 @@
 - ไม่กำหนดรูปแบบ/วิธีสร้างหมายเลขคิว เพราะยังรอ Q-02
 - ระบุ retry deadline ตาม NFR-REL-02 แยกจาก retry interval ตาม ASM-03 และใส่หมายเหตุว่ายังไม่อนุมานความสัมพันธ์ของเวลา
 
+## 2569-10-12 13:02 คำสั่ง: /verify specs/001-booking/
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์: specs/001-booking/spec.md, specs/001-booking/plan.md, specs/001-booking/tasks.md, specs/001-booking/test-cases.md
+- วัตถุประสงค์: ตรวจ requirement ตามรอยไปข้างหน้าและย้อนกลับ โดยไม่แก้โค้ดหรือ test
+
+### ผลลัพธ์การรัน test
+- `cd backend && pytest -v` -> 0 tests collected, 0 passed, exited code 5 (ไม่มีไฟล์ test ใน backend/tests)
+- `cd frontend && npm test` -> 1 test passed, 0 failed
+
+### สรุปสถานะตามรอยไปข้างหน้า
+- ครบ: 0 แถว
+- ยังไม่ถึง: 15 แถว (FR-BKG-01..06, NFR-PERF-01, NFR-SEC-01, NFR-REL-02, NFR-USE-01, CON-TECH-01, DOM-PDPA-01, IF-IDP-01, IF-HIS-01, IF-NOT-01)
+- รอ Q-xx: 0 แถว
+- ช่องโหว่: 0 แถว (แต่มีข้อค้นพบตามรอยย้อนกลับ)
+
+### ข้อค้นพบใหม่
+- F-001: โค้ดไม่มี FR — backend/app/main.py และ frontend/src/App.jsx/frontend/src/api/client.js ไม่มี logic สำหรับ Booking/Slots/notification/audit log ตาม FR-BKG-01..06
+- F-002: AC ไม่มี test — ไม่มี test backend สำหรับ AC-BKG-01..06 และ pytest collected 0 items
+- F-003: test อ่อน — frontend/src/__tests__/setup.test.jsx ตรวจเฉพาะข้อความแสดงผลทั่วไป ไม่ใช่ Then ของ AC
+- F-004: ไม่ตรง mockup — frontend/src/App.jsx ไม่สร้าง UI-BKG-01, UI-BKG-02, UI-BKG-03 ตาม “ต้องตรง” ใน spec
+
+### สร้างไฟล์ RTM
+- `specs/001-booking/rtm.md` ถูกสร้างตามแบบภาคผนวก โดยคงข้อค้นพบใหม่ F-001 ถึง F-004 และเว้นช่อง “ทีมตัดสิน” ไว้
+
 ## 2569-10-07 09:04 คำสั่ง: /testcases AC-BKG-01 specs/001-booking/
 
 - เครื่องมือ: Copilot ใน Codespaces
