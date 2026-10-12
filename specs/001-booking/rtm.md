@@ -35,6 +35,7 @@
 | F-002 | AC ไม่มี test | backend/tests; frontend/src/__tests__/setup.test.jsx | AC-BKG-01..AC-BKG-06 | มีเพียง test สำหรับ "โครงหน้าจอเปิดได้" ใน frontend และไม่มี test backend สำหรับ AC ใดเลย; pytest collected 0 items |  |
 | F-003 | test อ่อน | frontend/src/__tests__/setup.test.jsx | AC-BKG-01..AC-BKG-06 | Test อ้างชื่อว่าเป็น UI setup แต่ assert เฉพาะข้อความ "ระบบจองคิวตรวจสุขภาพ" อย่างเดียว ไม่ตรวจว่า Then ของ AC ถูกจริง |  |
 | F-004 | ไม่ตรง mockup | frontend/src/App.jsx | UI-BKG-01, UI-BKG-02, UI-BKG-03 | หน้า App ไม่มีส่วนเลือกแพ็กเกจ/วัน/ช่วงเวลา ไม่มีปุ่มยืนยันการจอง ไม่มีหมายเลขคิวที่เด่นตาม mockup และไม่แสดงสถานะตาม Requirement/UI |  |
+| F-005 | AC ไม่มี test | attachment: file_AC-BKG-03.test.jsx (ไม่อยู่ใน workspace repo) | AC-BKG-03 | ไฟล์ทดสอบที่แนบเป็น `../pages/ConfirmBooking.jsx` แต่โฟลเดอร์ `frontend/src/pages/` ใน repo ยังไม่มีไฟล์ดังกล่าว จึงไม่สามารถใช้เป็นหลักฐานการตรวจว่าสร้างงาน T-11/T-12 เสร็จจริงได้ และยังไม่มี test จริงใน repo สำหรับ AC-BKG-03 |  |
 
 ## 4. แก้แล้ว
 | F-ID | แก้อย่างไร | รู้ได้อย่างไร |

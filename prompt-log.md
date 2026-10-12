@@ -144,6 +144,28 @@
 ### สร้างไฟล์ RTM
 - `specs/001-booking/rtm.md` ถูกสร้างตามแบบภาคผนวก โดยคงข้อค้นพบใหม่ F-001 ถึง F-004 และเว้นช่อง “ทีมตัดสิน” ไว้
 
+## 2569-10-12 13:09 คำสั่ง: /verify specs/001-booking/
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์: specs/001-booking/spec.md, specs/001-booking/plan.md, specs/001-booking/tasks.md, attachment: file_AC-BKG-03.test.jsx
+- วัตถุประสงค์: ตรวจเพิ่มจากไฟล์ทดสอบที่แนบมาว่าโค้ดใน repo ยังไม่ประกอบถึง AC-BKG-03 หรือไม่
+
+### ผลลัพธ์การรัน test
+- `cd frontend && npm test` -> 1 passed, 0 failed (เฉพาะ setup test ที่มีอยู่จริงใน repo)
+- ไฟล์แนบ `file_AC-BKG-03.test.jsx` ไม่อยู่ใน repo และอ้างถึง `../pages/ConfirmBooking.jsx` ซึ่งใน repo ไม่มีไฟล์ดังกล่าว จึงไม่ถือว่าเป็น test ที่ตรวจจริงแล้วใน workspace
+
+### สรุปสถานะตามรอยไปข้างหน้า
+- ครบ: 0 แถว
+- ยังไม่ถึง: 15 แถว
+- รอ Q-xx: 0 แถว
+- ช่องโหว่: 0 แถว
+
+### ข้อค้นพบใหม่
+- F-005: AC ไม่มี test — attachment file_AC-BKG-03.test.jsx ไม่อยู่ใน repo และชี้ไปที่ไฟล์ `frontend/src/pages/ConfirmBooking.jsx` ที่ยังไม่มีอยู่จริง จึงไม่มีหลักฐานการตรวจจริงสำหรับ AC-BKG-03
+
+### ทะเบียน RTM
+- ข้อค้นพบ F-005 ถูกเพิ่มใน `specs/001-booking/rtm.md` ด้วยช่อง “ทีมตัดสิน” ว่างไว้
+
 ## 2569-10-07 09:04 คำสั่ง: /testcases AC-BKG-01 specs/001-booking/
 
 - เครื่องมือ: Copilot ใน Codespaces
